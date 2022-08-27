@@ -6,14 +6,25 @@ fname = input("Enter file name: ")
 fh = open(fname)
 
 count = 0
+
 for line in fh:
     line = line.rstrip()
     if line == "": continue
         
     words = line.split()
     if words[0] !="From": continue
+    
+    email = words[1]
+    
+    host_name =email.split("@")
         
     print(words[1])
+    
+    print(host_name[1])
+    
     count = count+1
+    
 
 print ("There were", count, "lines in the file with From as the first word")
+
+print("There were", count, "hostname in this file")
